@@ -51,9 +51,9 @@ jobs:
       # 5. 自動生成檔案清單
       - name: Generate File List
         run: |
-          #sh ./singlefile-repo/export-filename.sh 
           cd singlefile-repo
           ls -al
+          #sh ./export-filename.sh 
           sh ./replace-html.sh 
           rm -f *.sh index_sample README.md
           cd .. 
