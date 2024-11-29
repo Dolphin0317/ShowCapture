@@ -4,7 +4,7 @@
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-> singlefile-repo/file-list.txt
-find singlefile-repo -type f -name "*.html" -exec basename {} \; | while IFS= read -r file; do
-    echo "<li><a href='${file}'>${file}</a></li>" >> singlefile-repo/file-list.txt
+> file-list.txt
+find . -type f -name "*.html" -exec basename {} \; | while IFS= read -r file; do
+    echo "<li><a href='${file}'>${file}</a></li>" >> file-list.txt
 done
