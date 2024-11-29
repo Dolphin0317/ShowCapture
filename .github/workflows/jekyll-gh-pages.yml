@@ -46,13 +46,14 @@ jobs:
         run: |
           # 確保 singlefile-repo 目錄存在，並將檔案拷貝到 singlefile-repo 目錄
           mkdir -p singlefile-repo
-          cp index_sample *.css *.sh singlefile-repo/
+          cp index_sample *.css *.sh file-list.txt singlefile-repo/
 
       # 5. 自動生成檔案清單
       - name: Generate File List
         run: |
           sh ./singlefile-repo/export-filename.sh 
           cd singlefile-repo
+          ls -al
           sh ./replace-html.sh 
           rm -f *.sh index_sample README.md
           cd .. 
