@@ -16,3 +16,5 @@ sed "/<!-- file-list.txt 的內容將自動插入至此處 -->/ {
 }" "${index_file}" > "${output_file}"
 
 echo "已生成更新後的檔案：${output_file}"
+
+rm -f./${file_list}
