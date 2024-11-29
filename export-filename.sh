@@ -6,8 +6,9 @@ export LC_ALL=en_US.UTF-8
 
 # 定義檔
 file_list="file-list.txt"
+idx=0
 
 > ${file_list}
 find . -type f -name "*.html" -exec basename {} \; | while IFS= read -r file; do
-    echo "<li><a href='${file}'>${file}</a></li>" >> ${file_list}
+    echo "<li><a href='${file}' target='_a${((++idx))}'>${file}</a></li>" >> ${file_list}
 done
