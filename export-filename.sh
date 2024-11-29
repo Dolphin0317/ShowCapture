@@ -10,5 +10,6 @@ idx=0
 
 > ${file_list}
 find . -type f -name "*.html" -exec basename {} \; | while IFS= read -r file; do
-    echo "<li><a href='${file}' target='_a${((++idx))}'>${file}</a></li>" >> ${file_list}
+    idx=$((idx + 1))
+    echo "<li><a href='${file}' target='_a${idx}'>${file}</a></li>" >> ${file_list}
 done
