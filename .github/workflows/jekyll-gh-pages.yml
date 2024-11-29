@@ -54,7 +54,7 @@ jobs:
           sh ./singlefile-repo/export-filename.sh 
           cd singlefile-repo
           sh ./replace-html.sh 
-          rm *.sh index_sample README.md
+          rm *.sh index_sample README.md 2>&1
           cd .. 
 
       # 7. 檢查生成的檔案
