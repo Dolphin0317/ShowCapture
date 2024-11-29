@@ -17,7 +17,7 @@
             </ul>
         </div>
         <footer>
-            &copy; 2024 Kevin Lin. 保留所有權利。<br />            
+            <span>&copy; 2024 Kevin Lin. 保留所有權利。</span><br />            
             <span id="renew-time" style="float: right;"> 最後更新時間：<span style="text-decoration: underline;"><!-- LastRenewTime --></span> </span>
         </footer>
     </div>
