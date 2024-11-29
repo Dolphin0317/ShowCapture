@@ -60,13 +60,10 @@ jobs:
       # 7. 檢查生成的檔案
       - name: List Directory Structure
         run: |
-          echo "Origin: "
-          git remote get-url origin
-          echo "+++++++++++++++++++++++++++++++"
-          echo "List Folder:  -- _site -- "
-          ls -al _site
+          #echo "List Folder:  -- _site -- "
+          #ls -al _site
           #cat _site/index.html
-          echo "+++++++++++++++++++++++++++++++"
+          #echo "+++++++++++++++++++++++++++++++"
           echo "List Folder:  -- singlefile-rep -- "
           ls -al singlefile-repo
         
