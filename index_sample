@@ -18,8 +18,8 @@
         </div>
         <footer>
             &copy; 2024 Kevin Lin. 保留所有權利。
+            最後更新時間：<span id="renew-time" style="float: right;"><!-- LastRenewTime -->ABC</span>
         </footer>
-        <span id="err" style="color:red;"></span>
     </div>
 </body>
 </html>
