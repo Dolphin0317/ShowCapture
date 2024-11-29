@@ -42,7 +42,7 @@ jobs:
           path: singlefile-repo # 提取到此資料夾
 
       # 3. 創建 singlefile-repo 目錄（如果不存在），然後從 Public Repo 複製必要檔案
-      - name: Copy index_sample, *.css, *.sh to singlefile-repo
+      - name: Copy index_sample, *.css, *.sh TO singlefile-repo
         run: |
           # 確保 singlefile-repo 目錄存在，並將檔案拷貝到 singlefile-repo 目錄
           mkdir -p singlefile-repo
@@ -53,7 +53,7 @@ jobs:
         run: |
           cd singlefile-repo
           ls -al
-          #sh ./export-filename.sh 
+          sh ./export-filename.sh 
           sh ./replace-html.sh 
           rm -f *.sh index_sample README.md
           cd .. 
@@ -61,10 +61,6 @@ jobs:
       # 7. 檢查生成的檔案
       - name: List Directory Structure
         run: |
-          #echo "List Folder:  -- _site -- "
-          #ls -al _site
-          #cat _site/index.html
-          #echo "+++++++++++++++++++++++++++++++"
           echo "List Folder:  -- singlefile-rep -- "
           ls -al singlefile-repo
         
