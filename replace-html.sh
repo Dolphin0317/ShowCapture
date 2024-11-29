@@ -10,7 +10,7 @@ file_list="file-list.txt"
 output_file="index.html"
 
 # 獲取當前時間，格式為 yyyy-MM-dd HH:mm:ss
-current_time=$(date "+%Y-%m-%d %H:%M:%S")
+current_time=$(TZ="Asia/Taipei" date "+%Y-%m-%d %H:%M:%S")
 
 # 使用 sed 替換內容
 sed "/<!-- file-list.txt 的內容將自動插入至此處 -->/ {
