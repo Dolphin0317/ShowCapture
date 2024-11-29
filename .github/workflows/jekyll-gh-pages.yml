@@ -48,21 +48,20 @@ jobs:
           mkdir -p singlefile-repo
           cp index_sample *.css *.sh file-list.txt singlefile-repo/
 
-      # 5. 自動生成檔案清單
+      # 4. 自動生成檔案清單
       - name: Generate File List
         run: |
           cd singlefile-repo
-          ls -al
           sh ./export-filename.sh 
           sh ./replace-html.sh 
-          rm -f *.sh index_sample README.md
+          rm -f *.sh README.md
           cd .. 
 
       # 7. 檢查生成的檔案
-      - name: List Directory Structure
-        run: |
-          echo "List Folder:  -- singlefile-rep -- "
-          ls -al singlefile-repo
+      #- name: List Directory Structure
+      #  run: |
+      #    echo "List Folder:  -- singlefile-rep -- "
+      #    ls -al singlefile-repo
         
       - name: Setup Pages
         uses: actions/configure-pages@v5
