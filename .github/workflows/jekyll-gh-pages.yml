@@ -29,8 +29,46 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout
+      # 1. 檢出 Public Repository
+      - name: Checkout Public Repository
         uses: actions/checkout@v4
+
+      # 2. 檢出 Private Repository (SingleFile-Archives)
+      - name: Checkout Private Repository
+        uses: actions/checkout@v4
+        #with:
+        #  repository: ${{ secrets.MY_PRIVATE_REPOSITORY }}
+        #  token: ${{ secrets.PERSONAL_ACCESS_TOKEN }} # Private Token
+        #  path: singlefile-repo # 提取到此資料夾
+
+      # 3. 創建 singlefile-repo 目錄（如果不存在），然後從 Public Repo 複製必要檔案
+      - name: Copy index_sample, *.css, *.sh to singlefile-repo
+        run: |
+          # 確保 singlefile-repo 目錄存在，並將檔案拷貝到 singlefile-repo 目錄
+          mkdir -p singlefile-repo
+          cp index_sample *.css *.sh singlefile-repo/
+
+      # 5. 自動生成檔案清單
+      - name: Generate File List
+        run: |
+          sh ./singlefile-repo/export-filename.sh 
+          cd singlefile-repo
+          sh ./replace-html.sh 
+          rm *.sh index_sample README.md
+          cd .. 
+
+      # 7. 檢查生成的檔案
+      - name: List Directory Structure
+        run: |
+          echo "Origin: "
+          git remote get-url origin
+          echo "+++++++++++++++++++++++++++++++"
+          echo "List Folder:  -- _site -- "
+          ls -al _site
+          #cat _site/index.html
+          echo "+++++++++++++++++++++++++++++++"
+          echo "List Folder:  -- singlefile-rep -- "
+          ls -al singlefile-repo
         
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -38,7 +76,7 @@ jobs:
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./
+          source: ./singlefile-repo
           destination: ./_site
           
       - name: Upload artifact
