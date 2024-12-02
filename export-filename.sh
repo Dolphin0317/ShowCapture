@@ -8,8 +8,11 @@ export LC_ALL=en_US.UTF-8
 file_list="file-list.txt"
 idx=0
 
+# 清空或建立輸出檔案
 > ${file_list}
-find . -type f -name "*.html" -exec basename {} \; | while IFS= read -r file; do
+
+
+find . -type f -name "*.html" -exec basename {} \; | sort -nr | while IFS= read -r file; do
     idx=$((idx + 1))
     echo "<li><a href='${file}' target='_a${idx}'>${file}</a></li>" >> ${file_list}
 done
