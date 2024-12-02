@@ -11,8 +11,9 @@ idx=0
 # 清空或建立輸出檔案
 > ${file_list}
 
-
-find . -type f -name "*.html" -exec basename {} \; | sort -nr | while IFS= read -r file; do
+# 使用 `find` 列出所有 HTML 檔案，並根據建立日期排序
+find . -type f -name "*.html" -exec basename {} \; | sort -nr | \
+while IFS= read -r file; do
     idx=$((idx + 1))
     echo "<li><a href='${file}' target='_a${idx}'>${file}</a></li>" >> ${file_list}
 done
