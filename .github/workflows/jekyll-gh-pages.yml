@@ -38,7 +38,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ${{ secrets.MY_PRIVATE_REPOSITORY }}
-          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }} # Private Token
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }} # Private Token  ?? PAT_SingleFile_token ??
           path: singlefile-repo # 提取到此資料夾
 
       # 3. 創建 singlefile-repo 目錄（如果不存在），然後從 Public Repo 複製必要檔案
