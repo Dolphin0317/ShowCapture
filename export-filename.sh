@@ -17,3 +17,6 @@ while IFS= read -r file; do
     idx=$((idx + 1))
     echo "<li><a href='${file}' target='_a${idx}'>${file}</a></li>" >> ${file_list}
 done
+
+# 查看 file-list.txt 內容
+cat ${file_list}
