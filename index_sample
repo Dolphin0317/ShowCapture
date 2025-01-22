@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SingleFile 檔案列表</title>
     <link rel="stylesheet" href="index.css" />
+    <script src="index.js" type="text/javascript" charset="UTF-8"></script>
 </head>
 <body>
     <div class="container">
