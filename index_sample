@@ -12,7 +12,7 @@
         <div class="owner-name">KevinL</div>
         <div class="owner-info">SingleFile 檔案列表</div>
         <hr />
-        <div class="file-list-container" style="display: none;">
+        <div class="file-list-container">
             <ul id="file-list">
                 <!-- file-list.txt 的內容將自動插入至此處 -->
             </ul>
