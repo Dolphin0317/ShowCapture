@@ -15,19 +15,20 @@ current_time=$(TZ="Asia/Taipei" date "+%Y-%m-%d %H:%M:%S")
 # 初始化分頁變數
 page_size=10
 page_count=0
+count=0
 
 # 生成分頁內容
 page_content=""
 while read -r line; do
-    # 新增一筆資料
-    if [[ $((++count % page_size)) -eq 1 ]]; then
+    # 每頁開頭處理
+    if (( ++count % page_size == 1 )); then
         page_count=$((page_count + 1))
-        if [[ $page_count -gt 1 ]]; then
+        if (( page_count > 1 )); then
             page_content+="</ul></div>"
         fi
         page_content+="<div class='page' id='page-${page_count}' style='display: none;'><ul>"
     fi
-    page_content+="\n<li>${line}</li>"
+    page_content+="<li>${line}</li>"
 done < "${file_list}"
 
 # 關閉最後一個分頁
@@ -42,17 +43,20 @@ pagination_controls+="</div>"
 
 # 使用 sed 替換內容
 sed "/<!-- file-list.txt 的內容將自動插入至此處 -->/ {
-    #r ${file_list}
     r /dev/null
     d
 }
 s/<!-- LastRenewTime -->/${current_time}/" "${index_file}" > "${output_file}"
 
-# 插入分頁內容和分頁按鈕
-sed -i "/<!-- 分頁內容插入點 -->/c ${page_content}" "${output_file}"
-sed -i "/<!-- 分頁控制插入點 -->/c ${pagination_controls}" "${output_file}"
+# 使用分頁內容替換標記
+escaped_page_content=$(printf "%s" "${page_content}" | sed 's/[&/\]/\\&/g')
+escaped_pagination_controls=$(printf "%s" "${pagination_controls}" | sed 's/[&/\]/\\&/g')
+
+# 替換分頁內容和按鈕
+sed -i "/<!-- 分頁內容插入點 -->/c ${escaped_page_content}" "${output_file}"
+sed -i "/<!-- 分頁控制插入點 -->/c ${escaped_pagination_controls}" "${output_file}"
 
 echo "已生成更新後的檔案：${output_file}"
 
 # 移除臨時檔案
-rm -f ./${index_file} ./${file_list} 
+rm -f ./${index_file} ./${file_list}
