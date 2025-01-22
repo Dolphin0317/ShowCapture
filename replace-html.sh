@@ -17,18 +17,18 @@ page_size=10
 page_count=0
 
 # 生成分頁內容
-#page_content=""
-#while read -r line; do
-#    # 新增一筆資料
-#    if [[ $((++count % page_size)) -eq 1 ]]; then
-#        page_count=$((page_count + 1))
-#        if [[ $page_count -gt 1 ]]; then
-#            page_content+="</ul></div>"
-#        fi
-#        page_content+="<div class='page' id='page-${page_count}' style='display: none;'><ul>"
-#    fi
-#    page_content+="\n<li>${line}</li>"
-#done < "${file_list}"
+page_content=""
+while read -r line; do
+    # 新增一筆資料
+    if [[ $((++count % page_size)) -eq 1 ]]; then
+        page_count=$((page_count + 1))
+        if [[ $page_count -gt 1 ]]; then
+            page_content+="</ul></div>"
+        fi
+        page_content+="<div class='page' id='page-${page_count}' style='display: none;'><ul>"
+    fi
+    page_content+="\n<li>${line}</li>"
+done < "${file_list}"
 
 # 關閉最後一個分頁
 page_content+="</ul></div>"
@@ -42,7 +42,8 @@ pagination_controls+="</div>"
 
 # 使用 sed 替換內容
 sed "/<!-- file-list.txt 的內容將自動插入至此處 -->/ {
-    r ${file_list}
+    #r ${file_list}
+    r /dev/null
     d
 }
 s/<!-- LastRenewTime -->/${current_time}/" "${index_file}" > "${output_file}"
