@@ -15,13 +15,13 @@ current_time=$(TZ="Asia/Taipei" date "+%Y-%m-%d %H:%M:%S")
 # 初始化分頁變數
 page_size=10
 page_count=0
-count=0
+count=0  # 初始化 count
 
 # 生成分頁內容
 page_content=""
 while read -r line; do
     # 每頁開頭處理
-    count=$((count + 1))  # 替代 ++count
+    count=$((count + 1))  # 使用數值運算更新 count
     if (( count % page_size == 1 )); then
         page_count=$((page_count + 1))
         if (( page_count > 1 )); then
