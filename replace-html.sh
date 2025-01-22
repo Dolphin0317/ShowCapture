@@ -21,7 +21,8 @@ count=0
 page_content=""
 while read -r line; do
     # 每頁開頭處理
-    if (( ++count % page_size == 1 )); then
+    count=$((count + 1))  # 替代 ++count
+    if (( count % page_size == 1 )); then
         page_count=$((page_count + 1))
         if (( page_count > 1 )); then
             page_content+="</ul></div>"
