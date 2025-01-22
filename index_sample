@@ -12,11 +12,14 @@
         <div class="owner-name">KevinL</div>
         <div class="owner-info">SingleFile 檔案列表</div>
         <hr />
-        <div class="file-list-container">
+        <div class="file-list-container" style="display: none;">
             <ul id="file-list">
                 <!-- file-list.txt 的內容將自動插入至此處 -->
             </ul>
         </div>
+
+        <!-- 分頁內容插入點 -->
+        <!-- 分頁控制插入點 -->
         <footer>
             <span>&copy; 2024 Kevin Lin. 保留所有權利。</span><br />            
             <span id="renew-time" style="float: right;"> 最後更新時間：<span style="text-decoration: underline;"><!-- LastRenewTime --></span> </span>
