@@ -29,6 +29,18 @@ body {
     display: none;
 }
 
+.owner-info {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff; /* 可調整背景色，避免與內容混淆 */
+    z-index: 1000; /* 確保固定區塊位於最上層 */
+    padding: 10px 0;
+    text-align: center; /* 文字置中，可根據需求調整 */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* 增加陰影，讓效果更顯著 */
+}
+
 .file-list-container {
     text-align: left;
     margin-top: 20px;
