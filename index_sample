@@ -9,14 +9,13 @@
 </head>
 <body>
     <div class="container">
-        <div class="owner-name">KevinL</div>
         <div class="owner-info">SingleFile 檔案列表</div>
-        <div style="height: 60px;"></div> <!-- 添加一個占位區塊，高度與固定區塊一致 -->
-        <hr />
-        <div class="file-list-container">
-            <ul id="file-list">
-                <!-- file-list.txt 的內容將自動插入至此處 -->
-            </ul>
+        <div class="content-wrapper">
+            <div class="file-list-container">
+                <ul id="file-list">
+                    <!-- file-list.txt 的內容將自動插入至此處 -->
+                </ul>
+            </div>
         </div>
 
         <!-- 分頁內容插入點 -->
