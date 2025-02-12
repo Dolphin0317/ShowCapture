@@ -20,8 +20,9 @@
             </div>
         </div>
 
-	    <!-- 分頁內容插入點 -->
-        <!-- 分頁控制插入點 -->
+    	<ul id="articleList" class="article-list" style="display: none;"></ul>
+        <div id="pagination" class="pagination" style="display: none;"></ul>
+        <div id="pageInfo" class="page-info" style="display: none;"></ul>
 
         <footer>
             <span>&copy; 2024 Kevin Lin. 保留所有權利。</span><br />            
