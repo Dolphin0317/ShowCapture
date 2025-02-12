@@ -19,9 +19,9 @@
             </div>
         </div>
 
-    	<ul id="articleList" class="article-list"></ul>
         <div id="pagination" class="pagination"></ul>
         <div id="pageInfo" class="page-info"></ul>
+    	<ul id="articleList" class="article-list"></ul>        
 
         <footer>
             <span>&copy; 2024 Kevin Lin. 保留所有權利。</span><br />            
