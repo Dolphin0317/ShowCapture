@@ -1,33 +1,33 @@
 function getArticles() {
-  const fileListContainer = document.querySelector('.file-list-container');
-  if (!fileListContainer) {
-    console.error('找不到 .file-list-container 元素');
-    return "沒有資料"; // 返回 "沒有資料"
-  }
-
-  const fileList = fileListContainer.querySelector('#file-list');
-  if (!fileList) {
-    console.error('找不到 #file-list 元素');
-    return "沒有資料"; // 返回 "沒有資料"
-  }
-
-  const listItems = fileList.querySelectorAll('li');
-  const articles = [];
-
-  listItems.forEach(item => {
-    const link = item.querySelector('a');
-    if (link) {
-      articles.push(link.href);
-    } else {
-      console.warn('<li> 元素中找不到 <a> 標籤', item);
+    const fileListContainer = document.querySelector('.file-list-container');
+    if (!fileListContainer) {
+        console.error('找不到 .file-list-container 元素');
+        return "沒有資料"; // 返回 "沒有資料"
     }
-  });
 
-  if (articles.length === 0) {
-    return "沒有資料"; // 如果 articles 是空陣列，返回 "沒有資料"
-  }
+    const fileList = fileListContainer.querySelector('#file-list');
+    if (!fileList) {
+        console.error('找不到 #file-list 元素');
+        return "沒有資料"; // 返回 "沒有資料"
+    }
 
-  return articles;
+    const listItems = fileList.querySelectorAll('li');
+    const articles = [];
+
+    listItems.forEach(item => {
+        const link = item.querySelector('a');
+        if (link) {
+            articles.push(link.href);
+        } else {
+            console.warn('<li> 元素中找不到 <a> 標籤', item);
+        }
+    });
+
+    if (articles.length === 0) {
+        return "沒有資料"; // 如果 articles 是空陣列，返回 "沒有資料"
+    }
+
+    return articles;
 }
 
 // 主要功能
@@ -58,17 +58,23 @@ document.addEventListener('DOMContentLoaded', function () {
         const startIndex = (page - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
         const articleList = document.getElementById('articleList');
-        articleList.innerHTML = '';
 
-        articles.slice(startIndex, endIndex).forEach(article => {
-            const li = document.createElement('li');
-            li.className = 'article-item';
-            li.innerHTML = `
-                      <h3 class="article-title">${formatTitle(article)}</h3>
-                      <div class="article-date">${formatDate(article)}</div>
-                  `;
-            articleList.appendChild(li);
-        });
+        if (articleList) {
+            articleList.innerHTML = '';
+
+            articles.slice(startIndex, endIndex).forEach(article => {
+                const li = document.createElement('li');
+                li.className = 'article-item';
+                li.innerHTML = `
+                        <h3 class="article-title">${formatTitle(article)}</h3>
+                        <div class="article-date">${formatDate(article)}</div>
+                    `;
+                articleList.appendChild(li);
+            });
+        } else {
+            console.error('找不到 #articleList 元素');
+        }
+
     }
 
     // 建立分頁按鈕
@@ -114,7 +120,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // 更新頁面資訊
         const pageInfo = document.getElementById('pageInfo');
-        pageInfo.textContent = `第 ${currentPage} 頁，共 ${totalPages} 頁`;
+        if (pageInfo) {
+            pageInfo.textContent = `第 ${currentPage} 頁，共 ${totalPages} 頁`;
+        } else {
+            console.error('找不到 #pageInfo 元素');
+        }
+
     }
 
     // 更新頁面
