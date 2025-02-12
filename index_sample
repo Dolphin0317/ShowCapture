@@ -21,7 +21,9 @@
 
         <div id="pagination" class="pagination"></ul>
         <div id="pageInfo" class="page-info"></ul>
-    	<ul id="articleList" class="article-list"></ul>        
+    	<ul id="articleList" class="article-list">
+            <!-- file-list.txt 的內容將自動插入至此處 -->
+        </ul>        
 
         <footer>
             <span>&copy; 2024 Kevin Lin. 保留所有權利。</span><br />            
