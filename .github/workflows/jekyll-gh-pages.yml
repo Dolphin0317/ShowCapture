@@ -46,7 +46,7 @@ jobs:
         run: |
           # 確保 singlefile-repo 目錄存在，並將檔案拷貝到 singlefile-repo 目錄
           mkdir -p singlefile-repo
-          cp index_sample *.css *.sh file-list.txt singlefile-repo/
+          cp index_sample *.js *.css *.sh file-list.txt singlefile-repo/
 
       # 4. 自動生成檔案清單
       - name: Generate File List
