@@ -10,7 +10,11 @@
 
 <body>
     <div class="container">
-        <div class="owner-info">SingleFile 檔案列表</div>
+        <div class="owner-info">
+            SingleFile 檔案列表<br />
+             <!-- 新增：關鍵字搜尋輸入框 (移除 style 屬性) -->
+             <input type="text" id="search-input" placeholder="輸入關鍵字篩選檔案...">
+        </div>
         <div class="content-wrapper">
             <div class="file-list-container">
                 <ul id="file-list">
@@ -20,8 +24,7 @@
         </div>
 
         <div id="pagination" class="pagination"></ul>
-        <div id="pageInfo" class="page-info"></ul>
-    	<ul id="articleList" class="article-list"></ul>        
+        <div id="pageInfo" class="page-info"></ul>      
 
         <footer>
             <span>&copy; 2024 Kevin Lin. 保留所有權利。</span><br />            
