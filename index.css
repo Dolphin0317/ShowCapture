@@ -93,13 +93,42 @@ footer {
     .container {
         padding: 15px;
     }
-    
+
     .file-list-container li {
         padding: 10px;
     }
-    
+
     .owner-info {
         padding: 12px 0;
         font-size: 16px;
     }
 }
+
+/* 分頁樣式 */
+.pagination button.current-page {
+    font-weight: bold;
+    background-color: #ddd; /* 或其他醒目顏色 */
+    cursor: default;
+}
+.pagination button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+/* 其他分頁按鈕樣式 */
+.pagination button {
+    margin: 0 2px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.page-info {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+#search-input {
+  width: 45%;
+  margin-top: 5px; /* 可調整與上方文字的間距 */
+  padding: 10px 5px;
+  box-sizing: border-box;
+ }
