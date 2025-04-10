@@ -1,8 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
     const searchInput = document.getElementById('search-input');
     const fileList = document.getElementById('file-list');
-    const paginationContainer = document.getElementById('pagination');
-    const pageInfoContainer = document.getElementById('pageInfo');
+    
+    //const paginationContainer = document.getElementById('pagination');
+    //const pageInfoContainer = document.getElementById('pageInfo');
+
+    // 使用 class 選擇器
+    const paginationContainer = document.querySelector('.pagination');
+    const pageInfoContainer = document.querySelector('.page-info');
 
     // 將原始的列表項目儲存起來，注意：NodeList 是 live 的，轉為靜態 Array
     const allListItems = Array.from(fileList.querySelectorAll('li'));
